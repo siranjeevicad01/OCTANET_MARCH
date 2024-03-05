@@ -31,20 +31,20 @@ body {
 /* //........top text ........// */
 
 .top-txt {
-    background-color: var(--black);
+    background-color:lightpink;
 }
 
 .head {
     display: flex;
     justify-content: space-between;
-    color: rgba(255, 255, 255, 0.945);
+    color: rgba(0, 0, 0, 0.945);
     padding: 10px 0;
     font-size: 14px;
 }
 
 .head a {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.945);
+    color: rgba(0, 0, 0, 0.945);
     margin: 0 10px;
 }
 
@@ -237,7 +237,7 @@ body {
 
 .home_txt {
     position: absolute;
-    top: 37%;
+    top: 80%;
     left: 5%;
 }
 
@@ -254,11 +254,12 @@ body {
     line-height: 53px;
     letter-spacing: 3px;
     font-weight: 600;
-    color: var(--light-black);
+    color: white;
 }
 
 .home_txt .home_label p {
-    color: grey;
+    color: greenyellow;
+    text-shadow: hoff voff blur #000;
     font-size: 14px;
     padding-top: 10px;
 }
@@ -950,8 +951,7 @@ footer {
 }
 
 .footer-container .content_1 img {
-    height: 25px;
-    width: 180px;
+    height: 45px;
 }
 
 .footer-container {
