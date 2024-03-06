@@ -74,6 +74,7 @@ body {
 
 .navbar img {
     margin-left: 3rem;
+    height: 75px;
 }
 
 .menu-items {
@@ -166,7 +167,7 @@ body {
     }
     .navbar .menu-items {
         padding-top: 100px;
-        background: #fff;
+        background: #000000;
         height: 100vh;
         max-width: 100%;
         transform: translate(-150%);
@@ -196,6 +197,10 @@ body {
         top: 10px;
         right: 15px;
         margin-top: 8px;
+    }
+    .navbar img {
+        margin-left: 1.5rem; /* Adjusted margin */
+        height: 50px; /* Adjusted height */
     }
     .navbar-container input[type="checkbox"]:checked~.menu-items {
         transform: translateX(0);
@@ -665,12 +670,6 @@ body {
 }
 
 
-/* .best-seller .add-cart button {
-    padding: 5px 5px;
-    margin-top: 5px;
-    font-size: 14px;
-    cursor: pointer;
-} */
 
 
 /* //........ deal of week ........// */
@@ -745,31 +744,38 @@ body {
 
 .about {
     margin: 85px;
+    width: 100%;
 }
+
 .about h1 {
     font-weight: 600;
-    color: var(--black);
     font-size: 40px;
     letter-spacing: 1.5px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     color: var(--light-black);
 }
 
 .about .aboutus {
     display: flex;
-    height: 370px;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    /* border: 2px solid black; */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
 }
+
 .profile-img {
-    padding: 0 15px;
+    flex: 0 0 auto;
 }
+
 .profile-img img {
     width: 350px;
-    height:400px ;  
+    height: 400px;  
 }
+
+.about-text {
+    flex: 1 1 auto;
+    margin: 50px;
+}
+
 #media {
     position: relative;
     display: flex;
@@ -1097,9 +1103,37 @@ iframe {
         flex-direction: column;
         align-items: center;
     }
+    .about {
+        margin: 30px;
+        max-width: 500px; /* Added max-width */
+        margin-left: auto; /* Center the element horizontally */
+        margin-right: auto; /* Center the element horizontally */
+    }
+    .about .aboutus {
+        display: flex;
+        flex-wrap: wrap; /* Added to ensure responsiveness */
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
     
-
-
+    .profile-img {
+        padding: 0 10px; /* Adjusted padding */
+        flex: 1 1 auto; /* Allow flex items to grow */
+    }
+    
+    .profile-img img {
+        width: 100%; /* Make the image responsive */
+        max-width: 100%; /* Ensure image doesn't exceed its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
+    .about-text {
+        flex: 2 1 auto; /* Allow flex items to grow */
+        margin: 20px; /* Adjusted margin */
+    }
+        
+    
 
     .footer-container {
         display: flex;
@@ -1149,8 +1183,31 @@ iframe {
         display: flex;
         flex-direction: column;
     }
-    
+    .about {
+        margin: 50px;
+    }
+    .about h1 {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+    .about .aboutus {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-img {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .profile-img img {
+        width: 100%;
+        height: auto;
+    }
+    .about-text {
+        margin: 30px 0;
+    }
 
+    
 
 
 
