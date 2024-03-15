@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const endDateInput = document.getElementById('end-date');
   const addBtn = document.getElementById('add-btn');
   const todoList = document.getElementById('todo-list');
+  const inboxTaskInput = document.getElementById('inbox-task');
+  const addToInboxBtn = document.getElementById('add-to-inbox');
+  const deleteAllBtn = document.getElementById('delete-all-btn');
+
+  // Load tasks from localStorage when the page is loaded
+  loadTasks();
 
   addBtn.addEventListener('click', function() {
     const taskText = newTodoInput.value.trim();
@@ -11,28 +17,117 @@ document.addEventListener('DOMContentLoaded', function() {
     const endDate = endDateInput.value;
     if (taskText !== '') {
       const priority = document.querySelector('input[name="priority"]:checked').value;
-      const li = document.createElement('li');
-      li.className = 'todo-item';
-      li.dataset.priority = priority;
-      li.innerHTML = `
-        <label>${taskText}</label>
-        <div>
-          <span>Start: ${startDate}</span>
-          <span>End: ${endDate}</span>
-          <button class="complete-btn">Complete</button>
-        </div>
-      `;
-      todoList.appendChild(li);
+      const task = { id: Date.now(), text: taskText, startDate: startDate, endDate: endDate, priority: priority, completed: false };
+      addTask(task);
       newTodoInput.value = '';
       startDateInput.value = '';
       endDateInput.value = '';
     }
   });
 
-  todoList.addEventListener('click', function(e) {
-    if (e.target.classList.contains('complete-btn')) {
-      const listItem = e.target.closest('.todo-item');
-      listItem.classList.toggle('completed');
+  addToInboxBtn.addEventListener('click', function() {
+    const inboxTaskText = inboxTaskInput.value.trim();
+    if (inboxTaskText !== '') {
+      addTaskToInbox(inboxTaskText);
+      inboxTaskInput.value = '';
     }
   });
+
+  deleteAllBtn.addEventListener('click', function() {
+    if (confirm('Are you sure you want to delete all tasks?')) {
+      localStorage.removeItem('tasks');
+      renderTasks();
+    }
+  });
+
+  function addTask(task) {
+    const tasks = getTasks();
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    renderTasks();
+  }
+
+  function getTasks() {
+    const tasks = localStorage.getItem('tasks');
+    return tasks ? JSON.parse(tasks) : [];
+  }
+
+  function loadTasks() {
+    const tasks = getTasks();
+    tasks.forEach(task => renderTask(task));
+  }
+
+  function renderTask(task) {
+    const li = document.createElement('li');
+    li.className = 'todo-item';
+    if (task.completed) {
+      li.classList.add('completed');
+    }
+    li.innerHTML = `
+      <label>${task.text}</label>
+      <div>
+        <span>Start: ${task.startDate}</span>
+        <span>End: ${task.endDate}</span>
+        <button class="complete-btn">${task.completed ? 'Undo' : 'Complete'}</button>
+        <button class="delete-btn">Delete</button>
+        <button class="update-btn">Update</button>
+      </div>
+    `;
+    li.dataset.id = task.id;
+    todoList.appendChild(li);
+  }
+
+  function renderTasks() {
+    todoList.innerHTML = '';
+    loadTasks();
+  }
+
+  function addTaskToInbox(taskText) {
+    const inboxList = document.getElementById('inbox-list');
+    const li = document.createElement('li');
+    li.textContent = taskText;
+    inboxList.appendChild(li);
+  }
+
+  todoList.addEventListener('click', function(e) {
+    const listItem = e.target.closest('.todo-item');
+    const taskId = listItem.dataset.id;
+    if (e.target.classList.contains('complete-btn')) {
+      toggleCompleted(taskId);
+    } else if (e.target.classList.contains('delete-btn')) {
+      deleteTask(taskId);
+    } else if (e.target.classList.contains('update-btn')) {
+      updateTask(taskId);
+    }
+  });
+
+  function toggleCompleted(id) {
+    const tasks = getTasks();
+    const index = tasks.findIndex(task => task.id == id);
+    tasks[index].completed = !tasks[index].completed;
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    renderTasks();
+  }
+
+  function deleteTask(id) {
+    const tasks = getTasks();
+    const filteredTasks = tasks.filter(task => task.id != id);
+    localStorage.setItem('tasks', JSON.stringify(filteredTasks));
+    renderTasks();
+  }
+
+  function updateTask(id) {
+    const tasks = getTasks();
+    const taskToUpdate = tasks.find(task => task.id == id);
+    const newText = prompt('Enter new text for the task:', taskToUpdate.text);
+    if (newText !== null) {
+      const newStartDate = prompt('Enter new start date:', taskToUpdate.startDate);
+      const newEndDate = prompt('Enter new end date:', taskToUpdate.endDate);
+      taskToUpdate.text = newText;
+      taskToUpdate.startDate = newStartDate;
+      taskToUpdate.endDate = newEndDate;
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      renderTasks();
+    }
+  }
 });

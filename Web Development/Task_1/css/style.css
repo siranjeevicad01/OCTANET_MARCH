@@ -1258,3 +1258,85 @@ iframe {
     }
 }
 
+
+
+#prodetails{
+    display: flex;
+    margin: 75px;
+
+  }
+  
+  #prodetails .single-pro-image{
+    width: 40%;
+    margin-right: 50px
+  }
+  .small-img-group{
+    display:flex;
+    justify-content: space-between;
+  }
+  
+  .small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+  }
+  #prodetails .single-pro-details{
+    width: 50%;
+    padding: 30px;
+  }
+  
+  #prodetails .single-pro-details h4{
+    padding: 40px 0 20px 0;
+  
+  }
+  
+  #prodetails .single-pro-details h2{
+  font-size: 26px;
+  
+  }
+  
+  #prodetails .single-pro-details select{
+  display: block;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  outline: none;
+  }
+  
+  #prodetails .single-pro-details input{
+  width: 50px;
+  height: 40px;
+  padding-left: 10px;
+  font-size:16px;
+  margin-right: 10px;
+  outline: none;
+  }
+  
+  #prodetails .single-pro-details button{
+    
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #088178;
+    box-shadow: 0 5px #088178;
+  }
+  
+  #prodetails .single-pro-details .btn:hover {
+    box-shadow: 0 3px #088142;
+    top: 1px;
+  }
+  #prodetails .single-pro-details .btn:active {
+    box-shadow: 0 0 #088142;
+    top: 5px;
+  }
+  
+  #prodetails .single-pro-details span{
+    line-height: 25px;
+  }

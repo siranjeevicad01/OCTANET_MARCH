@@ -2,10 +2,11 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-image:url(https://i.postimg.cc/4dVyksH1/bg4.jpg);
 }
 
 header {
-  background-color: #333;
+  background-color:plum;
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -37,7 +38,7 @@ header {
 
 #add-btn {
   padding: 10px 20px;
-  background-color: #f05e8a;
+  background-color: plum;
   color: #fff;
   border: none;
   border-radius: 4px;
