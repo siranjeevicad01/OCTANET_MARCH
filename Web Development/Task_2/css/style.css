@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  background-color:plum;
+  background-color:rgb(227, 149, 162);
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -15,10 +15,14 @@ header {
 #todoapp {
   max-width: 600px;
   margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #new-todo {
-  width: calc(100% - 220px);
+  width: calc(100% - 240px);
   padding: 10px;
   margin-right: 10px;
   border: 1px solid #ccc;
@@ -36,32 +40,66 @@ header {
   border-radius: 4px;
 }
 
-#add-btn {
+#add-btn, #delete-all-btn {
   padding: 10px 20px;
-  background-color: plum;
+  background-color: rgb(236, 168, 191);
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-right: 10px;
 }
+.todo-item.completed label {
+  text-decoration: line-through;
+  color: #888;
+}
+
+
 
 #todo-list {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 20px 0;
 }
 
 .todo-item {
   padding: 10px;
   border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.todo-item label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.todo-item div {
   display: flex;
   justify-content: space-between;
 }
 
-.todo-item label {
+.todo-item span {
+  margin-right: 10px;
+}
+
+.complete-btn, .delete-btn, .update-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.todo-item.completed label {
-  text-decoration: line-through;
+.complete-btn {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.update-btn {
+  background-color: #008CBA;
+  color: #fff;
 }

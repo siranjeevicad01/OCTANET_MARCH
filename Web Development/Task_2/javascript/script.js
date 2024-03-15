@@ -3,10 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const startDateInput = document.getElementById('start-date');
   const endDateInput = document.getElementById('end-date');
   const addBtn = document.getElementById('add-btn');
-  const todoList = document.getElementById('todo-list');
-  const inboxTaskInput = document.getElementById('inbox-task');
-  const addToInboxBtn = document.getElementById('add-to-inbox');
   const deleteAllBtn = document.getElementById('delete-all-btn');
+  const todoList = document.getElementById('todo-list');
 
   // Load tasks from localStorage when the page is loaded
   loadTasks();
@@ -22,14 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
       newTodoInput.value = '';
       startDateInput.value = '';
       endDateInput.value = '';
-    }
-  });
-
-  addToInboxBtn.addEventListener('click', function() {
-    const inboxTaskText = inboxTaskInput.value.trim();
-    if (inboxTaskText !== '') {
-      addTaskToInbox(inboxTaskText);
-      inboxTaskInput.value = '';
     }
   });
 
@@ -76,27 +66,22 @@ document.addEventListener('DOMContentLoaded', function() {
     li.dataset.id = task.id;
     todoList.appendChild(li);
   }
+  
 
   function renderTasks() {
     todoList.innerHTML = '';
     loadTasks();
   }
 
-  function addTaskToInbox(taskText) {
-    const inboxList = document.getElementById('inbox-list');
-    const li = document.createElement('li');
-    li.textContent = taskText;
-    inboxList.appendChild(li);
-  }
-
   todoList.addEventListener('click', function(e) {
-    const listItem = e.target.closest('.todo-item');
+    const target = e.target;
+    const listItem = target.closest('.todo-item');
     const taskId = listItem.dataset.id;
-    if (e.target.classList.contains('complete-btn')) {
+    if (target.classList.contains('complete-btn')) {
       toggleCompleted(taskId);
-    } else if (e.target.classList.contains('delete-btn')) {
+    } else if (target.classList.contains('delete-btn')) {
       deleteTask(taskId);
-    } else if (e.target.classList.contains('update-btn')) {
+    } else if (target.classList.contains('update-btn')) {
       updateTask(taskId);
     }
   });
