@@ -1,24 +1,70 @@
+/* General styles that apply regardless of screen size */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image:url(https://i.postimg.cc/4dVyksH1/bg4.jpg);
+  background-image: url(https://i.postimg.cc/4dVyksH1/bg4.jpg);
 }
 
 header {
-  background-color:rgb(227, 149, 162);
+  background-color: rgb(227, 149, 162);
   color: #fff;
   text-align: center;
   padding: 20px;
 }
 
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: rgba(231, 31, 65, 0.413);
+}
+
+p {
+  line-height: 1.6;
+}
+
+footer {
+  background-color: rgb(227, 149, 162);
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* To-Do List styles */
+
 #todoapp {
-  max-width: 600px;
-  margin: 20px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 #new-todo {
@@ -33,14 +79,16 @@ header {
   margin-right: 5px;
 }
 
-#start-date, #end-date {
+#start-date,
+#end-date {
   padding: 8px;
   margin-right: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-#add-btn, #delete-all-btn {
+#add-btn,
+#delete-all-btn {
   padding: 10px 20px;
   background-color: rgb(236, 168, 191);
   color: #fff;
@@ -49,12 +97,6 @@ header {
   cursor: pointer;
   margin-right: 10px;
 }
-.todo-item.completed label {
-  text-decoration: line-through;
-  color: #888;
-}
-
-
 
 #todo-list {
   list-style-type: none;
@@ -82,7 +124,9 @@ header {
   margin-right: 10px;
 }
 
-.complete-btn, .delete-btn, .update-btn {
+.complete-btn,
+.delete-btn,
+.update-btn {
   padding: 6px 10px;
   border: none;
   border-radius: 4px;
@@ -105,40 +149,199 @@ header {
 }
 
 
-@media (max-width: 947px) {
-  #todoapp {
-    max-width: 600px;
-  }
 
-  #new-todo {
-    width: calc(100% - 200px);
-  }
-  
 
-  .complete-btn, .delete-btn, .update-btn, #add-btn, #delete-all-btn {
-    padding: 8px 16px;
-    margin-right: 5px;
+
+
+.about{
+  margin: 60px;
+}
+.about .about-content{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.about .about-content .left{
+  width: 45%;
+}
+.about .about-content .left img{
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.about .about-content .right{
+  width: 55%;
+}
+.about .about-content .right h2{
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.about .about-content .right p{
+  text-align: justify;
+  line-break:normal;
+}
+.about .about-content .right h4{
+  text-align: justify;
+}
+
+.social_links #media {
+  position: relative;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.social_links #media li
+{
+  position: relative;
+  list-style: none;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+
+
+}
+.social_links #media  li a
+{
+  position: relative;
+  text-decoration: none;
+  color: var(--clr);
+  z-index: 10;
+  font-size: 2em;
+  transition: 0.5s ease-in-out;
+
+}
+.social_links #media  li:hover
+{
+  z-index: 100000;
+  transform: scale(0.75);
+  transform: translateY(-10px);
+}
+.social_links #media  li::before
+{
+  content: '';
+  position: absolute;
+  inset: 30px;
+  box-shadow: 0 0 0 10px var(--clr),
+  0 0 0 20px var(--bg),
+  0 0 0 22px var(--clr);
+  transition: 0.5s;
+}
+.social_links #media  li:hover::before
+{
+inset: 0px;
+}
+.social_links #media  li::after
+{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:var(--bg);
+  transform: rotate(45deg);
+}
+
+.social_links .wave
+{
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://ftl.deekshith.eu.org/354310/None?hash=AgADY7");
+  background-size: 1000px 100px;
+}
+.social_links .wave#wave1
+{
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animatewave 4s linear infinite;
+}
+.social_links .wave#wave2
+{
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animatewave_02 4s linear infinite;
+}
+.social_links .wave#wave3
+{
+  z-index: 1000;
+  opacity: 0.2;
+  bottom:15px;
+  animation: animatewave 3s linear infinite;
+}
+.social_links .wave#wave4
+{
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animatewave_02 3s linear infinite;
+}
+@keyframes animatewave
+{
+  0%
+  {
+      background-position-x: 1000px;
   }
-  
- 
-  .todo-item label {
-    font-size: 16px;
+  100%
+  {
+      background-position-x: 0px;
+  }
+}
+@keyframes animatewave_02
+{
+  0%
+  {
+      background-position-x: 0px;
+  }
+  100%
+  {
+      background-position-x: 1000px;
   }
 }
 
 
+@media (max-width: 1104px) {
+  .about .about-content .left img{
+      height: 350px;
+      width: 350px;
+  }
+}
 
-@media (max-width: 500px) {
-  #new-todo {
-    width: calc(100% - 80px);
+@media (max-width: 991px) {
+  .max-width{
+      padding: 0 50px;
   }
-  
-  .todo-item label {
-    font-size: 14px;
+}
+
+@media (max-width: 947px){
+  .max-width{
+      max-width: 930px;
   }
-  
-  .complete-btn, .delete-btn, .update-btn, #add-btn, #delete-all-btn {
-    padding: 6px 10px;
-    margin-right: 3px;
+  .about .about-content .column{
+      width: 100%;
+  }
+  .about .about-content .left{
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 60px;
+  }
+  .about .about-content .right{
+      flex: 100%;
+  }
+}
+@media (max-width: 690px) {
+  .max-width{
+      padding: 0 23px;
   }
 }
