@@ -4,26 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="https://i.postimg.cc/XYDczDx3/todolist.jpg">
-  <title>To-Do List</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>To-Do List - About</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header>
     <h1><i class="far fa-edit"></i> To Do List</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </nav>
   </header>
 
-  <div id="todoapp">
-    <input id="new-todo" placeholder="Enter a task...">
-    <input type="radio" name="priority" value="low" checked>Low
-    <input type="radio" name="priority" value="medium">Medium
-    <input type="radio" name="priority" value="high">High
-    <input type="date" id="start-date" placeholder="Start Date">
-    <input type="date" id="end-date" placeholder="End Date">
-    <button id="add-btn">Add Task</button>
-    <button id="delete-all-btn">Delete All Tasks</button>
-    <ul id="todo-list"></ul>
-  </div>
+  <main>
+    <section id="todoapp">
+      <input id="new-todo" placeholder="Enter a task...">
+      <input type="radio" name="priority" value="low" checked>Low
+      <input type="radio" name="priority" value="medium">Medium
+      <input type="radio" name="priority" value="high">High
+      <input type="date" id="start-date" placeholder="Start Date">
+      <input type="date" id="end-date" placeholder="End Date">
+      <button id="add-btn">Add Task</button>
+      <button id="delete-all-btn">Delete All Tasks</button>
+      <ul id="todo-list"></ul>
+    </section>
+
+    <section class="about">
+      <h2>About Us</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat mi non nunc molestie, eu ultricies odio interdum. Nam id purus tortor. Duis porttitor posuere orci, in suscipit neque luctus nec. Vestibulum viverra magna nec justo euismod, sed convallis lacus pulvinar. Vivamus ac nisi vel nisi faucibus scelerisque vel nec felis. Fusce semper risus non diam fermentum, nec condimentum libero scelerisque. Morbi nec congue ligula.</p>
+      <p>Nullam at magna vitae nisl commodo sollicitudin. Nulla facilisi. Cras auctor malesuada sem, in cursus velit faucibus id. Sed nec tempor dolor. Integer bibendum fermentum commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut scelerisque nisi risus, et dignissim purus fringilla a. Ut aliquet feugiat magna, eget feugiat sem bibendum quis. Nulla facilisi. Duis ut eleifend lectus.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Pandas Dairy. All rights reserved.</p>
+  </footer>
 
   <script src="javascript/script.js"></script>
 </body>
