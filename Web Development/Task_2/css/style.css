@@ -105,50 +105,40 @@ header {
 }
 
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  /* Adjustments for screen widths between 768px and 1023px */
+@media (max-width: 947px) {
   #todoapp {
-    max-width: 80%;
+    max-width: 600px;
   }
 
   #new-todo {
     width: calc(100% - 200px);
   }
   
-  #add-btn, #delete-all-btn {
-    padding: 8px 16px;
-  }
 
+  .complete-btn, .delete-btn, .update-btn, #add-btn, #delete-all-btn {
+    padding: 8px 16px;
+    margin-right: 5px;
+  }
+  
+ 
   .todo-item label {
     font-size: 16px;
-  }
-
-  .complete-btn, .delete-btn, .update-btn {
-    padding: 4px 8px;
   }
 }
 
 
 
-@media screen and (max-width: 767px) {
-  /* Adjustments for screen widths up to 767px */
-  #todoapp {
-    max-width: 90%;
-  }
-
+@media (max-width: 500px) {
   #new-todo {
-    width: calc(100% - 160px);
+    width: calc(100% - 80px);
   }
   
-  #add-btn, #delete-all-btn {
-    padding: 6px 12px;
-  }
-
   .todo-item label {
     font-size: 14px;
   }
-
-  .complete-btn, .delete-btn, .update-btn {
-    padding: 2px 6px;
+  
+  .complete-btn, .delete-btn, .update-btn, #add-btn, #delete-all-btn {
+    padding: 6px 10px;
+    margin-right: 3px;
   }
 }
